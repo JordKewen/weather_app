@@ -1,0 +1,21 @@
+export default  {
+            '01d':'https://res.cloudinary.com/dyxarofvr/image/upload/v1547209023/newsun.png',
+            '02d':'https://res.cloudinary.com/dyxarofvr/image/upload/v1547209127/sunwithclouds.png',
+            '03d':'https://res.cloudinary.com/dyxarofvr/image/upload/v1547209126/cloudy.png',
+            '04d':'https://res.cloudinary.com/dyxarofvr/image/upload/v1547209127/stormcloud.png',
+            '09d':'https://res.cloudinary.com/dyxarofvr/image/upload/v1547209126/cloudrain.png',
+            '10d':'https://res.cloudinary.com/dyxarofvr/image/upload/v1547209126/cloudrainsun.png',
+            '11d':'https://res.cloudinary.com/dyxarofvr/image/upload/v1547209126/cloudlightning.png',
+            '13d':'https://res.cloudinary.com/dyxarofvr/image/upload/v1547209127/snow.png',
+            '50d':'https://res.cloudinary.com/dyxarofvr/image/upload/v1547209126/fog.png',
+            '01n':'https://res.cloudinary.com/dyxarofvr/image/upload/v1547209126/moon.png',
+            '02n':'https://res.cloudinary.com/dyxarofvr/image/upload/v1547209126/cloudmoon.png',
+            '03n':'https://res.cloudinary.com/dyxarofvr/image/upload/v1547209126/cloudy.png',
+            '04n':'https://res.cloudinary.com/dyxarofvr/image/upload/v1547209127/stormcloud.png',
+            '09n':'https://res.cloudinary.com/dyxarofvr/image/upload/v1547209126/cloudrain.png',
+            '10n':'https://res.cloudinary.com/dyxarofvr/image/upload/v1547209127/moonrain.png',
+            '11n':'https://res.cloudinary.com/dyxarofvr/image/upload/v1547209126/cloudlightning.png',
+            '13n':'https://res.cloudinary.com/dyxarofvr/image/upload/v1547209127/snow.png',
+            '50n':'https://res.cloudinary.com/dyxarofvr/image/upload/v1547209126/fog.png',
+
+}
