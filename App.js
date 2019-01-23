@@ -1,7 +1,9 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image, TouchableOpacity, Switch } from 'react-native';
-import WeekForcastMain from './week forcast/weekForcastMain';
-import TodaysForcastMain from './todays forcast/todaysForcastMain'
+import WeekForcastMainC from './week forcast/weekForcastMainC';
+import WeekForcastMainF from './week forcast/weekForcastMainF';
+import TodaysForcastMainC from './todays forcast/todaysForcastMainC';
+import TodaysForcastMainF from './todays forcast/todaysForcastMainF';
 import axios from 'axios';
 import SelectLocation from './selectLocation'
 
@@ -31,7 +33,7 @@ export default class App extends React.Component {
           displaySearch: false,
 
         // CELCIUS TO FAHRENHEIT
-          switchValue: true
+          switchValue: false
         }
 
   
@@ -46,8 +48,8 @@ export default class App extends React.Component {
       })
     }
     getLocation(); 
-    
   }
+
 
   handleToggleSwitch=()=>{
     this.setState({switchValue: !this.state.switchValue})
@@ -55,13 +57,26 @@ export default class App extends React.Component {
   
    
       celsiusToFahrenheit=()=>{
-        let tempVar = this.state.temp
-        if(this.state.switchValue === false){
-        this.setState({temp:tempVar*1.8+32})
-        } else {
-          this.setState({temp:tempVar})
-        }
+        // let temp = this.state.temp *1.8+32
+        //  tempMin = this.state.tempMin *1.8+32,
+        //  tempMax = this.state.tempMax *1.8+32,
+        //  wTempMin = this.state.wTempMin *1.8+32,
+        //  wTempMax = this.state.wTempMax *1.8+32,
+        //  icon = this.state.icon,
+        //  date = this.state.date,
+        //  cityName = this.state.cityName       
+        let fahrenheit = {  temp : this.state.temp*1.8+32,
+                            tempMin : this.state.tempMin*1.8+32,
+                            tempMax : this.state.tempMax*1.8+32,
+                            wTempMin : this.state.wTempMin*1.8+32,
+                            wTempMax : this.state.wTempMax*1.8+32,
+                            icon : this.state.icon,
+                            date : this.state.date,
+                            cityName : this.state.cityName
+              } 
+                            return fahrenheit
       }
+      
 
 
       getSearchLocation=(data)=>{        
@@ -76,7 +91,7 @@ export default class App extends React.Component {
 
      getWeather =(bool)=>{       
        if(bool === 'get'){
-        let url = 'https://api.openweathermap.org/data/2.5/weather?q='+this.state.cityID +'&units=metric&appid=b4bf003ae1a8131434f3457495d5eee1'
+        let url = 'https://api.openweathermap.org/data/2.5/weather?q=' + this.state.cityID + '&units=metric&appid=b4bf003ae1a8131434f3457495d5eee1'
         axios.get(url)
         .then((response)=> {  
             this.setState({
@@ -86,7 +101,9 @@ export default class App extends React.Component {
             temp:Math.round(response.data.main.temp),
             tempMin:response.data.main.temp_min,
             tempMax:response.data.main.temp_max,
-          })
+          }),()=>{
+             this.weekForcastCalc()
+          }
         })
         .catch((error)=> {
           // 
@@ -104,7 +121,7 @@ export default class App extends React.Component {
             tempMin:response.data.main.temp_min,
             tempMax:response.data.main.temp_max
           }),()=>{
-            // this.celsiusToFahrenheit()
+            this.weekForcastCalc()
           }
           
         })
@@ -233,20 +250,29 @@ export default class App extends React.Component {
         </View> 
         )
       }else if(this.state.switchValue === false){
-         this.celsiusToFahrenheit()
       return(          
         <View style={styles.container}>
         <View style={styles.top}>
-        <TodaysForcastMain {...this.state}/>
+        <TodaysForcastMainF todaysForcast={this.celsiusToFahrenheit()}/>
         </View>
         <View style={styles.middle}>
-          <WeekForcastMain apiObj={this.state.wkApiObj}/>
+          <WeekForcastMainF apiObj={this.state.wkApiObj}/>
         </View>
         <View style={styles.bottom}> 
-        <Switch style={{backgroundColor: '#1fbbdd', Color:'red', borderRadius: 17}}
+        {/* <Switch style={{backgroundColor: '#1fbbdd', Color:'red', borderRadius: 17}}
               onValueChange={this.handleToggleSwitch}
               value={this.state.switchValue}
-        />
+        /> */}
+        <TouchableOpacity  onPress={this.handleToggleSwitch}> 
+        <Image
+            style={{width:63,
+                    height:63,
+                    alignSelf:'center',
+                    marginTop:11
+                  }}
+                    source={{uri:'https://res.cloudinary.com/dyxarofvr/image/upload/v1547715406/reload__refresh__world__browser__global-512.png'}}
+            />
+          </TouchableOpacity>
         <TouchableOpacity  onPress={this.displaySearch}> 
         <Image
             style={{width:63,
@@ -263,16 +289,26 @@ export default class App extends React.Component {
         return(          
           <View style={styles.container}>
           <View style={styles.top}>
-          <TodaysForcastMain {...this.state}/>
+          <TodaysForcastMainC {...this.state}/>
           </View>
           <View style={styles.middle}>
-            <WeekForcastMain apiObj={this.state.wkApiObj}/>
+            <WeekForcastMainC apiObj={this.state.wkApiObj}/>
           </View>
           <View style={styles.bottom}> 
-          <Switch style={{backgroundColor: '#1fbbdd', Color:'red', borderRadius: 17}}
+          {/* <Switch style={{backgroundColor: '#1fbbdd', Color:'red', borderRadius: 17}}
                 onValueChange={this.handleToggleSwitch}
                 value={this.state.switchValue}
-          />
+          /> */}
+          <TouchableOpacity  onPress={this.handleToggleSwitch}> 
+        <Image
+            style={{width:63,
+                    height:63,
+                    alignSelf:'center',
+                    marginTop:11
+                  }}
+                    source={{uri:'https://res.cloudinary.com/dyxarofvr/image/upload/v1547715406/reload__refresh__world__browser__global-512.png'}}
+            />
+          </TouchableOpacity>
           <TouchableOpacity  onPress={this.displaySearch}> 
           <Image
               style={{width:63,
