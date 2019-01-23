@@ -259,28 +259,17 @@ export default class App extends React.Component {
           <WeekForcastMainF apiObj={this.state.wkApiObj}/>
         </View>
         <View style={styles.bottom}> 
-        {/* <Switch style={{backgroundColor: '#1fbbdd', Color:'red', borderRadius: 17}}
+        <Switch style={{backgroundColor: '#1fbbdd', Color:'red', borderRadius: 17}}
               onValueChange={this.handleToggleSwitch}
               value={this.state.switchValue}
-        /> */}
-        <TouchableOpacity  onPress={this.handleToggleSwitch}> 
-        <Image
-            style={{width:63,
-                    height:63,
-                    alignSelf:'center',
-                    marginTop:11
-                  }}
-                    source={{uri:'https://res.cloudinary.com/dyxarofvr/image/upload/v1547715406/reload__refresh__world__browser__global-512.png'}}
-            />
-          </TouchableOpacity>
+        />
         <TouchableOpacity  onPress={this.displaySearch}> 
-        <Image
-            style={{width:63,
-                    height:63,
-                    alignSelf:'center',
-                    marginTop:11
-                  }}
-                    source={{uri:'https://res.cloudinary.com/dyxarofvr/image/upload/v1547715406/reload__refresh__world__browser__global-512.png'}}
+        <Image  style={{width:63,
+                        height:63,
+                        alignSelf:'center',
+                        marginTop:11
+                      }}
+                        source={{uri:'https://res.cloudinary.com/dyxarofvr/image/upload/v1547715406/reload__refresh__world__browser__global-512.png'}}
             />
           </TouchableOpacity>
         </View>
@@ -295,29 +284,18 @@ export default class App extends React.Component {
             <WeekForcastMainC apiObj={this.state.wkApiObj}/>
           </View>
           <View style={styles.bottom}> 
-          {/* <Switch style={{backgroundColor: '#1fbbdd', Color:'red', borderRadius: 17}}
+          <Switch style={{backgroundColor: '#1fbbdd', Color:'red', borderRadius: 17}}
                 onValueChange={this.handleToggleSwitch}
                 value={this.state.switchValue}
-          /> */}
-          <TouchableOpacity  onPress={this.handleToggleSwitch}> 
-        <Image
-            style={{width:63,
-                    height:63,
-                    alignSelf:'center',
-                    marginTop:11
-                  }}
-                    source={{uri:'https://res.cloudinary.com/dyxarofvr/image/upload/v1547715406/reload__refresh__world__browser__global-512.png'}}
-            />
-          </TouchableOpacity>
+          />
           <TouchableOpacity  onPress={this.displaySearch}> 
-          <Image
-              style={{width:63,
-                      height:63,
-                      alignSelf:'center',
-                      marginTop:11
-                    }}
-                      source={{uri:'https://res.cloudinary.com/dyxarofvr/image/upload/v1547715406/reload__refresh__world__browser__global-512.png'}}
-              />
+          <Image  style={{width:63,
+                        height:63,
+                        alignSelf:'center',
+                        marginTop:11
+                      }}
+                        source={{uri:'https://res.cloudinary.com/dyxarofvr/image/upload/v1547715406/reload__refresh__world__browser__global-512.png'}}
+            />
             </TouchableOpacity>
           </View>
           </View>
