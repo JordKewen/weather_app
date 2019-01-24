@@ -33,7 +33,7 @@ export default class App extends React.Component {
           displaySearch: false,
 
         // CELCIUS TO FAHRENHEIT
-          switchValue: false
+          switchValue: true
         }
 
   
@@ -41,7 +41,7 @@ export default class App extends React.Component {
   componentDidMount(){
       const getLocation=()=>{
           navigator.geolocation.getCurrentPosition((pos)=>{
-          this.setState({latitude:pos.coords.latitude,longitude:pos.coords.longitude},()=>{
+          this.setState({latitude:pos.coords.latitude,longitude:pos.coords.longitude,switchValue:!this.state.switchValue},()=>{
            this.getWeather()
            this.getWeeksWeather()
           })
@@ -52,7 +52,8 @@ export default class App extends React.Component {
 
 
   handleToggleSwitch=()=>{
-    this.setState({switchValue: !this.state.switchValue})
+    this.setState({switchValue: !this.state.switchValue}),()=>{
+    }
     }
   
    
