@@ -1,5 +1,5 @@
 import React from 'react';
-import WeekForcastListC from './WeekForcastListC';
+import WeekForcastListC from './weekForcastListC';
 import { StyleSheet, Text, View, Image } from 'react-native';
 
 export default class WeekForcastMainC extends React.Component {

@@ -1,24 +1,26 @@
 import React from 'react';
-import WeekForcastItemF from './weekForcastItemF';
+import WeekForcastItemC from './weekForcastItemC';
 import {View} from 'react-native'
 
-export default class WeekForcastListF extends React.Component {
+export default class WeekForcastListC extends React.Component {
         render(){
             //debugger
              if(this.props.weeksForcast){
                  let splicedForcast = this.props.weeksForcast.slice(1,4)
-                 //debugger
              return(                               
                 <View>                    
-                {     splicedForcast.map((ele, i)=>{                    
+                {
+                    splicedForcast.map((ele, i)=>{
+                        
+                
                         let day = ele.date;
                         let icon = ele.icon;
-                        let tempMax = ele.max*1.8+32;
-                        let tempMin = ele.min*1.8+32;
-                        //debugger
+                        let tempMax = ele.max;
+                        let tempMin = ele.min;
+                        
                         return(
                             <View key={i}>
-                                <WeekForcastItemF 
+                                <WeekForcastItemC 
                                     day={day}
                                     icon={icon}
                                     max={tempMax}
